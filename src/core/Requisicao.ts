@@ -1,6 +1,6 @@
 
 export default class Requisicao {
-    #id: string 
+    #_id: string 
     #guid: string
     #datarequisicao: string
     #datadespacho: string
@@ -10,7 +10,7 @@ export default class Requisicao {
     #status: string
     #tipo: string
 
-    constructor(id: string = '',
+    constructor(_id: string = '',
                 guid: string = '',
                 datarequisicao: string = '',
                 datadespacho: string = '',
@@ -19,7 +19,7 @@ export default class Requisicao {
                 departamento: string = '',
                 status: string = '',
                 tipo: string = '',) {
-        this.#id = id
+        this.#_id = _id
         this.#guid = guid
         this.#datarequisicao = datarequisicao,
         this.#datadespacho = datadespacho,
@@ -30,8 +30,8 @@ export default class Requisicao {
         this.#tipo = tipo
     } 
 
-    get id(){
-        return this.#id
+    get _id(){
+        return this.#_id
     }
 
     get guid(){
