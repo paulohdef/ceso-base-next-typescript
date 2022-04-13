@@ -210,3 +210,90 @@ export const IconeExcluir = (
     <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
   </svg>
 )
+
+export function CheckSVG() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6 text-red-500 flex-shrink-0 group-hover:text-red-600 transition duration-75"
+      // width="512"
+      // height="512"
+      viewBox="0 0 512 512"
+    >
+      <polyline
+        points="416 128 192 384 96 288"
+        style={{
+          fill: 'none',
+          stroke: 'currentcolor',
+          strokeLinecap: 'square',
+          strokeMiterlimit: 10,
+          strokeWidth: 44,
+        }}
+      />
+    </svg>
+  )
+}
+
+export function CloseSVG() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6 text-red-500 flex-shrink-0 group-hover:text-red-600 transition duration-75"
+      // width="512"
+      // height="512"
+      viewBox="0 0 512 512"
+    >
+      <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+    </svg>
+  )
+}
+
+export function PencilSVG() {
+  return (
+    <svg
+      className="w-5 h-5 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+      xmlns="http://www.w3.org/2000/svg"
+      // width="512"
+      // height="512"
+      viewBox="0 0 512 512"
+    >
+      <polygon points="103 464 48 464 48 409 358.14 98.09 413.91 153.87 103 464" />
+      <path d="M425.72,142,370,86.28l31.66-30.66C406.55,50.7,414.05,48,421,48a25.91,25.91,0,0,1,18.42,7.62l17,17A25.87,25.87,0,0,1,464,91c0,7-2.71,14.45-7.62,19.36ZM418.2,71.17h0Z" />
+    </svg>
+  )
+}
+
+export function TrashSVG() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5 text-red-500 flex-shrink-0 group-hover:text-red-600 transition duration-75"
+      // width="512"
+      // height="512"
+      viewBox="0 0 512 512"
+    >
+      <path
+        d="M296,64H216a7.91,7.91,0,0,0-8,8V96h96V72A7.91,7.91,0,0,0,296,64Z"
+        style={{ fill: 'none' }}
+      />
+      <path
+        d="M292,64H220a4,4,0,0,0-4,4V96h80V68A4,4,0,0,0,292,64Z"
+        style={{ fill: 'none' }}
+      />
+      <path d="M447.55,96H336V48a16,16,0,0,0-16-16H192a16,16,0,0,0-16,16V96H64.45L64,136H97l20.09,314A32,32,0,0,0,149,480H363a32,32,0,0,0,31.93-29.95L415,136h33ZM176,416l-9-256h33l9,256Zm96,0H240V160h32ZM296,96H216V68a4,4,0,0,1,4-4h72a4,4,0,0,1,4,4Zm40,320H303l9-256h33Z" />
+    </svg>
+  )
+}
+
+export function EvenOdd() {
+  return (
+    <svg
+      className="w-5 h-5"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"></path>
+    </svg>
+  )
+}

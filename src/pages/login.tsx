@@ -1,9 +1,26 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 interface LoginPageProps {}
 
+type FormValues = {
+  email: string
+  password: string
+}
+
 const LoginPage: NextPage<LoginPageProps> = (props) => {
+  //descontrui o useForm e tipando com email e password
+  const { register, handleSubmit } = useForm<FormValues>()
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    //desconstrui o retorno data
+    const { email, password } = data
+
+    alert(email)
+    alert(JSON.stringify(data))
+  }
+
   return (
     <div className="mx-auto md:h-screen flex flex-col justify-center items-center px-6 pt-8 pt:mt-0">
       <a className="text-2xl font-semibold flex justify-center items-center mb-4 lg:mb-5">
@@ -19,18 +36,18 @@ const LoginPage: NextPage<LoginPageProps> = (props) => {
           <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
             Entrar no sistema
           </h2>
-          <form className="mt-8 space-y-6">
+          <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label className="text-sm font-medium text-gray-900 block mb-2">
                 Seu email
               </label>
               <input
                 type="email"
-                name="email"
                 id="email"
                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                 placeholder="name@company.com"
                 required
+                {...register('email')}
               />
             </div>
             <div>
@@ -39,11 +56,11 @@ const LoginPage: NextPage<LoginPageProps> = (props) => {
               </label>
               <input
                 type="password"
-                name="password"
                 id="password"
                 placeholder="••••••••"
                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                 required
+                {...register('password')}
               />
             </div>
             <div className="flex items-start">
@@ -68,14 +85,12 @@ const LoginPage: NextPage<LoginPageProps> = (props) => {
               </Link>
             </div>
 
-            <Link href="/dashboard" passHref>
-              <button
-                type="button"
-                className="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-600 font-medium rounded-lg text-base px-5 py-3 w-full sm:w-auto text-center"
-              >
-                Entrar em sua conta
-              </button>
-            </Link>
+            <button
+              type="submit"
+              className="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-600 font-medium rounded-lg text-base px-5 py-3 w-full sm:w-auto text-center"
+            >
+              Entrar em sua conta
+            </button>
 
             <div className="text-sm font-medium text-gray-500">
               Não tem cadastro?{' '}

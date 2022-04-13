@@ -1,7 +1,7 @@
-import Content from './content'
-import Footer from './footer'
-import NavbarDashboard from './navbar-dashboard'
-import SidebarDashboard from './sidebar-dashboard'
+import Content from './Content'
+import Footer from './Footer'
+import NavbarDashboard from './Navbar-dashboard'
+import SidebarDashboard from './Sidebar-dashboard'
 
 interface LayoutProps {
   titulo: string
