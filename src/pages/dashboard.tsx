@@ -1,5 +1,4 @@
 import { NextPage } from 'next'
-// import useSWR from 'swr'
 
 import { Line1 } from '../components/charts/Line'
 import { List } from '../components/dashboard/List'
@@ -17,25 +16,7 @@ type DashboarPageProps = {
   requerimento: Requisicao[]
 }
 
-// const fetcher = (url: string) => http.get(url).then((res) => res.data)
-
 const DashboarPage: NextPage<DashboarPageProps> = (props) => {
-  // const { requerimento: requerimentoProp } = props
-
-  // const { data: requerimento, error } = useSWR('api/requeriment', fetcher, {
-  //   fallbackData: requerimentoProp,
-  //   // refreshInterval: 1000,
-  //   shouldRetryOnError: true,
-  // })
-
-  // const state = useSelector((state ) => state.requeriment);
-
-  // const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   dispatch(fetchRequeriments())
-  // }, [dispatch])
-
   return (
     <Layout titulo="Dashboar" subTitulo="Administrar suas informações">
       <div className="pt-4 px-4">

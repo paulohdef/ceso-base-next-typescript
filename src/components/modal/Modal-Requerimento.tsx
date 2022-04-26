@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 
-import { useDispatch, useSelector } from 'react-redux'
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import cx from 'clsx'
 
@@ -22,7 +22,7 @@ const ModalRequerimento = () => {
     formState: { errors },
   } = useForm()
 
-  const state = useSelector((state) => state.requeriment)
+  const state = useSelector((state: RootStateOrAny) => state.requeriment)
 
   const dispatch = useDispatch()
 
@@ -32,7 +32,7 @@ const ModalRequerimento = () => {
     dispatch(setSelectedRequeriment(undefined))
   }
 
-  const onSubmitHandler = (data) => {
+  const onSubmitHandler = (data: any) => {
     console.log(JSON.stringify(data))
 
     if (data) {

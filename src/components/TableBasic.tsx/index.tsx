@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, RootStateOrAny } from 'react-redux'
 
 import moment from 'moment'
 
@@ -23,7 +23,7 @@ const formatDate = (value: string) => {
 }
 
 export default function TableBasic(props: TableBasicProps) {
-  const state = useSelector((state) => state.requeriment)
+  const state = useSelector((state: RootStateOrAny) => state.requeriment)
 
   const dispatch = useDispatch()
 

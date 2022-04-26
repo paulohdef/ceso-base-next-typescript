@@ -56,7 +56,7 @@ const SidebarDashboard: React.FC<SidebarProps> = (props) => {
                 />
 
                 <MenuItem
-                  url="/cadastro"
+                  url="/requeriment"
                   texto="Requerimento"
                   icone={IconeArquivos}
                 />
