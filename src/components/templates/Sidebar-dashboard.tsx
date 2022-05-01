@@ -16,6 +16,8 @@ import MenuItem from './MenuItem'
 interface SidebarProps {}
 
 const SidebarDashboard: React.FC<SidebarProps> = (props) => {
+  function logon() {}
+
   return (
     <>
       <aside

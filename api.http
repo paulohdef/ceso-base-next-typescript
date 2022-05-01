@@ -2,3 +2,33 @@ GET http://localhost:3000/api/hello
 
 ###
 GET http://localhost:3000/api/requerimento
+
+ 
+
+###
+POST http://host.docker.internal:3000/auth/signin 
+Content-Type: application/json 
+
+{
+   "email": "speedsis@gmail.com",
+   "password": "123456" 
+}
+ 
+
+###
+POST http://host.docker.internal:3001/api/login
+Content-Type: application/json 
+
+{
+   "email": "speedsis@gmail.com",
+   "password": "123456" 
+} 
+
+###
+GET http://159.65.235.241:3000/pessoas/?page=0&limit=100&nome=
+Content-Type: application/json 
+ 
+{
+    
+} 
+ 

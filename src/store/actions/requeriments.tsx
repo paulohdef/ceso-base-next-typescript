@@ -1,4 +1,5 @@
 import Requisicao from '@/src/core/Requisicao'
+
 import * as t from '../types'
 
 export const setModalOpen = (isModalOpen: boolean) => {

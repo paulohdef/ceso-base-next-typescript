@@ -1,0 +1,48 @@
+[
+  {
+    "title": "AUXÍLIO FINANCEIRO",
+    "subTitle": "Financeiro",
+    "src": "/images/auxfinanceiro.png"
+  },
+  {
+    "title": "CONDUÇÃO VEICULAR",
+    "subTitle": "Veicular",
+    "src": "/images/conducaoveicular.png"
+  },
+  {
+    "title": "CONVÊNIO",
+    "subTitle": "Convênios",
+    "src": "/images/convenios.png"
+  },
+  {
+    "title": "MEDICAMENTOS",
+    "subTitle": "Farmácia",
+    "src": "/images/farmacia.png"
+  },
+  {
+    "title": "FARDACESO",
+    "subTitle": "Farda",
+    "src": "/images/fardaceso.png"
+  },
+  { "title": "HOTEL", "subTitle": "Hotel", "src": "/images/hotel.png" },
+  {
+    "title": "HABITACIONAL",
+    "subTitle": "Habitacional",
+    "src": "/images/habitacionai.png"
+  },
+  {
+    "title": "MEDICAMENTOS",
+    "subTitle": "Medicamentos",
+    "src": "/images/medicamentos.png"
+  },
+  {
+    "title": "ODONTOMÓVEL",
+    "subTitle": "Odonto",
+    "src": "/images/odontomovel.png"
+  },
+  {
+    "title": "KIT FRAUDA",
+    "subTitle": "Frauda",
+    "src": "/images/kit_frauda.png"
+  }
+]

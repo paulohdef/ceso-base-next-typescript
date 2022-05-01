@@ -21,6 +21,7 @@ import Section from '../components/dashboard/Section'
 import Dropdown from '../components/widgets/dropdown'
 import { Line1 } from '../components/charts/Line'
 import { List } from '../components/dashboard/List'
+import Breadcrumb from '../components/breadcrumbs'
 
 type ProfilePageProps = {}
 
@@ -80,6 +81,12 @@ const tabs = [
   },
 ]
 
+const itemsBreadcrumbs = [
+  { title: 'Home', url: '/dashboard', last: false },
+  { title: 'Associado', url: '/associado', last: false },
+  { title: 'Perfil', url: '/profile', last: true },
+]
+
 const ProfilePage: NextPage<ProfilePageProps> = (props) => {
   const state = useSelector((state: RootStateOrAny) => state.user)
 
@@ -98,6 +105,12 @@ const ProfilePage: NextPage<ProfilePageProps> = (props) => {
   return (
     <Layout titulo="Dashboar" subTitulo="Administrar suas informações">
       <div className="pt-4 px-4">
+        <div className="flex flex-row mb-4">
+          <div className="w-full">
+            <Breadcrumb items={itemsBreadcrumbs} home={true} icon="chevrons" />
+          </div>
+        </div>
+
         {/* <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4"> */}
         <Card>
           <div className="intro-y box px-5 pt-0 mt-0">

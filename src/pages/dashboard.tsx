@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 
 import { Line1 } from '../components/charts/Line'
 import { List } from '../components/dashboard/List'
@@ -6,17 +6,41 @@ import { List } from '../components/dashboard/List'
 import Section from '../components/dashboard/Section'
 import { IconeSetaAbaixo, IconeSetaAcima } from '../components/icons'
 import ModalRequerimento from '../components/modal/Modal-Requerimento'
-import TableBasic from '../components/TableBasic.tsx'
+import TableBasic from '../components/TableBasicRedux.tsx'
 import Layout from '../components/templates/Layout'
 import Card from '../components/templates/shortcodes/card'
 import Dropdown from '../components/widgets/dropdown'
 import Requisicao from '../core/Requisicao'
+import { withIronSessionSsr } from 'iron-session/next'
+import axios from 'axios'
+import ironConfig from '../utils/iron-config'
+import useSWR from 'swr'
+import Router from 'next/router'
 
 type DashboarPageProps = {
   requerimento: Requisicao[]
 }
 
+const fetcher = (url: string) => axios.get(url).then((res) => res.data)
+
 const DashboarPage: NextPage<DashboarPageProps> = (props) => {
+  const { data, error } = useSWR(
+    `${process.env.NEXT_PUBLIC_API_HOST}/requeriment`,
+    fetcher,
+    {
+      fallbackData: props.requerimento,
+      refreshInterval: 2,
+      onError: (error) => {
+        console.log(error)
+        if (error.response.status === 401 || error.response.status === 403) {
+          Router.push('/login')
+        }
+      },
+    },
+  )
+
+  console.log('retorno' + data)
+
   return (
     <Layout titulo="Dashboar" subTitulo="Administrar suas informações">
       <div className="pt-4 px-4">
@@ -130,3 +154,34 @@ const DashboarPage: NextPage<DashboarPageProps> = (props) => {
 }
 
 export default DashboarPage
+
+export const getServerSideProps: GetServerSideProps = withIronSessionSsr(
+  async (context) => {
+    const user = context.req.session.user
+
+    if (!user) {
+      return {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      }
+    }
+
+    const { data } = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_HOST}/requeriment`,
+      {
+        headers: {
+          cookie: context.req.headers.cookie as string,
+        },
+      },
+    )
+
+    return {
+      props: {
+        requerimento: data,
+      },
+    }
+  },
+  ironConfig,
+)

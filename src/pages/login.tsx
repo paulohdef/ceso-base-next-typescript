@@ -1,6 +1,8 @@
 import { NextPage } from 'next'
+import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+import axios from 'axios'
 
 interface LoginPageProps {}
 
@@ -10,15 +12,22 @@ type FormValues = {
 }
 
 const LoginPage: NextPage<LoginPageProps> = (props) => {
-  //descontrui o useForm e tipando com email e password
+  const router = useRouter()
   const { register, handleSubmit } = useForm<FormValues>()
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    //desconstrui o retorno data
+  async function onSubmit(data: FormValues) {
     const { email, password } = data
 
-    alert(email)
-    alert(JSON.stringify(data))
+    try {
+      await axios.post(`${process.env.NEXT_PUBLIC_API_HOST}/login`, {
+        email,
+        password,
+      })
+      router.push('/dashboard')
+    } catch (e) {
+      console.error(e)
+      alert('Login deu zebra!!')
+    }
   }
 
   return (
@@ -71,7 +80,6 @@ const LoginPage: NextPage<LoginPageProps> = (props) => {
                   name="remember"
                   type="checkbox"
                   className="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-cyan-200 h-4 w-4 rounded"
-                  required
                 />
               </div>
               <div className="text-sm ml-3">

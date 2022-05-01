@@ -1,2 +1,2 @@
-export * from './Requisicao';
-export * from './User';
+export * from './Requisicao'
+export * from './User'
