@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Alert from '../alerts'
+// import Alert from '../alerts'
 
 type ForgotProps = {
   message: string
@@ -24,13 +24,13 @@ const ForgotPassword = (props: ForgotProps) => {
       <div className="flex flex-col">
         {data && message && (
           <div className="w-full mb-4">
-            <Alert
+            {/* <Alert
               color="bg-transparent border-green-500 text-green-500"
               borderLeft
               raised
             >
               {message}
-            </Alert>
+            </Alert> */}
           </div>
         )}
       </div>

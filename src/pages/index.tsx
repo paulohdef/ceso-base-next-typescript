@@ -5,8 +5,7 @@ import { List } from '../components/dashboard/List'
 
 import Section from '../components/dashboard/Section'
 import { IconeSetaAbaixo, IconeSetaAcima } from '../components/icons'
-import ModalRequerimento from '../components/modal/Modal-Requerimento'
-import TableBasic from '../components/TableBasicRedux.tsx'
+
 import Layout from '../components/templates/Layout'
 import Card from '../components/templates/shortcodes/card'
 import Dropdown from '../components/widgets/dropdown'
@@ -16,6 +15,7 @@ import axios from 'axios'
 import ironConfig from '../utils/iron-config'
 import useSWR from 'swr'
 import Router from 'next/router'
+import TableRequeriment from '../components/TableRequeriment.tsx'
 
 type HomePageProps = {
   requerimento: Requisicao[]
@@ -117,9 +117,7 @@ const HomePage: NextPage<HomePageProps> = (props) => {
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
           <Card className="xl:col-span-3 ">
             {/* <TableBasic requisicao={requerimento} /> */}
-            <TableBasic />
-
-            <ModalRequerimento />
+            <TableRequeriment listRequeriment={data} />
           </Card>
         </div>
 

@@ -92,8 +92,8 @@ const AssociadoShowPage = (props: any) => {
             <div className="w-full">
               <Breadcrumb
                 items={itemsBreadcrumbs}
-                home={true}
-                icon="chevrons"
+                // home={true}
+                // icon="chevrons"
               />
             </div>
           </div>

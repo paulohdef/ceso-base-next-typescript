@@ -2,7 +2,23 @@ import Link from 'next/link'
 import { IcChevronRight, IcHome } from '../icons'
 import PropTypes from 'prop-types'
 
-const Breadcrumb = ({ home = false, icon = 'arrow', items }) => (
+interface Item {
+  home?: boolean
+  title: string
+  url: string
+  last: boolean
+}
+interface BreadcrumbProps {
+  home?: boolean
+  icon?: string
+  items: Item[]
+}
+
+const Breadcrumb = ({
+  home = false,
+  icon = 'arrow',
+  items,
+}: BreadcrumbProps) => (
   <nav className="w-full flex">
     <ol className="list-none flex flex-row items-center justify-start">
       {home && (

@@ -1,12 +1,9 @@
 import { NextPage } from 'next/types'
 
-import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import {
   IcAccount,
   IcEmail,
   IcInstagram,
-  IconeArquivos,
-  IcPassword,
   IcProfile,
   IcSettings,
   IcTwitter,
@@ -88,118 +85,108 @@ const itemsBreadcrumbs = [
 ]
 
 const ProfilePage: NextPage<ProfilePageProps> = (props) => {
-  const state = useSelector((state: RootStateOrAny) => state.user)
-
   const [user, setUser] = useState<User>()
 
-  useEffect(() => {
-    console.log('resultado do State' + JSON.stringify(state.selectedUser))
-
-    if (state.selectedUser) {
-      setUser(state.selectedUser)
-    }
-
-    console.log('resultado do State nome' + user?.email)
-  }, [state.selectedUser])
-
   return (
-    <Layout titulo="Dashboar" subTitulo="Administrar suas informações">
-      <div className="pt-4 px-4">
-        <div className="flex flex-row mb-4">
-          <div className="w-full">
-            <Breadcrumb items={itemsBreadcrumbs} home={true} icon="chevrons" />
-          </div>
-        </div>
+    <div> Profile </div>
 
-        {/* <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4"> */}
-        <Card>
-          <div className="intro-y box px-5 pt-0 mt-0">
-            <div className="flex flex-1 lg:flex-row border-b border-slate-200/60 dark:border-darkmode-400 pb-5 -mx-5">
-              <div className="flex flex-1 px-5 items-start justify-start lg:justify-start">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 flex-none lg:w-32 lg:h-32 image-fit relative">
-                  <img
-                    alt="Icewall Tailwind HTML Admin Template"
-                    className="rounded-full"
-                    src="/images/users/lana-byrd.png"
-                  />
-                </div>
-                <div className="ml-5">
-                  <div className="w-24 sm:w-40 truncate sm:whitespace-normal font-medium text-lg">
-                    {user?.name}
-                  </div>
-                  <div className="text-slate-500">Software Engineer</div>
-                </div>
-              </div>
-              <div className="mt-0 lg:mt-0 flex-1 px-5 border-l border-r border-slate-200/60 dark:border-darkmode-400  lg:border-t-0 pt-0 lg:pt-0">
-                <div className="font-medium text-start lg:text-left lg:mt-3">
-                  Contact Details
-                </div>
-                <div className="flex flex-col justify-center items-start lg:items-start mt-4">
-                  <div className="truncate sm:whitespace-normal flex items-center">
-                    <IcEmail />
-                    {user?.email}
-                  </div>
-                  <div className="truncate sm:whitespace-normal flex items-center mt-3">
-                    <IcInstagram />
-                    Instagram Nicolas Cage
-                  </div>
-                  <div className="truncate sm:whitespace-normal flex items-center mt-3">
-                    <IcTwitter />
-                    Twitter Nicolas Cage
-                  </div>
-                </div>
-              </div>
-              <div className="mt-6 lg:mt-0 flex-1 flex items-center justify-center px-5  lg:border-0 border-slate-200/60 dark:border-darkmode-400 pt-0 lg:pt-0">
-                <div className="text-center rounded-md w-20 py-3">
-                  <div className="font-medium text-primary text-xl">201</div>
-                  <div className="text-slate-500">Orders</div>
-                </div>
-                <div className="text-center rounded-md w-20 py-3">
-                  <div className="font-medium text-primary text-xl">1k</div>
-                  <div className="text-slate-500">Purchases</div>
-                </div>
-                <div className="text-center rounded-md w-20 py-3">
-                  <div className="font-medium text-primary text-xl">492</div>
-                  <div className="text-slate-500">Reviews</div>
-                </div>
-              </div>
-            </div>
-          </div>
+    // <Layout titulo="Dashboar" subTitulo="Administrar suas informações">
+    //   <div className="pt-4 px-4">
+    //     <div className="flex flex-row mb-4">
+    //       <div className="w-full">
+    //         <Breadcrumb items={itemsBreadcrumbs} home={true} icon="chevrons" />
+    //       </div>
+    //     </div>
 
-          <div className=" flex flex-wrap">
-            <div className="w-full">
-              <UnderlinedTabs tabs={tabs} />
-            </div>
-          </div>
-        </Card>
+    //     {/* <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4"> */}
+    //     <Card>
+    //       <div className="intro-y box px-5 pt-0 mt-0">
+    //         <div className="flex flex-1 lg:flex-row border-b border-slate-200/60 dark:border-darkmode-400 pb-5 -mx-5">
+    //           <div className="flex flex-1 px-5 items-start justify-start lg:justify-start">
+    //             <div className="w-20 h-20 sm:w-24 sm:h-24 flex-none lg:w-32 lg:h-32 image-fit relative">
+    //               <img
+    //                 alt="Icewall Tailwind HTML Admin Template"
+    //                 className="rounded-full"
+    //                 src="/images/users/lana-byrd.png"
+    //               />
+    //             </div>
+    //             <div className="ml-5">
+    //               <div className="w-24 sm:w-40 truncate sm:whitespace-normal font-medium text-lg">
+    //                 {user?.name}
+    //               </div>
+    //               <div className="text-slate-500">Software Engineer</div>
+    //             </div>
+    //           </div>
+    //           <div className="mt-0 lg:mt-0 flex-1 px-5 border-l border-r border-slate-200/60 dark:border-darkmode-400  lg:border-t-0 pt-0 lg:pt-0">
+    //             <div className="font-medium text-start lg:text-left lg:mt-3">
+    //               Contact Details
+    //             </div>
+    //             <div className="flex flex-col justify-center items-start lg:items-start mt-4">
+    //               <div className="truncate sm:whitespace-normal flex items-center">
+    //                 <IcEmail />
+    //                 {user?.email}
+    //               </div>
+    //               <div className="truncate sm:whitespace-normal flex items-center mt-3">
+    //                 <IcInstagram />
+    //                 Instagram Nicolas Cage
+    //               </div>
+    //               <div className="truncate sm:whitespace-normal flex items-center mt-3">
+    //                 <IcTwitter />
+    //                 Twitter Nicolas Cage
+    //               </div>
+    //             </div>
+    //           </div>
+    //           <div className="mt-6 lg:mt-0 flex-1 flex items-center justify-center px-5  lg:border-0 border-slate-200/60 dark:border-darkmode-400 pt-0 lg:pt-0">
+    //             <div className="text-center rounded-md w-20 py-3">
+    //               <div className="font-medium text-primary text-xl">201</div>
+    //               <div className="text-slate-500">Orders</div>
+    //             </div>
+    //             <div className="text-center rounded-md w-20 py-3">
+    //               <div className="font-medium text-primary text-xl">1k</div>
+    //               <div className="text-slate-500">Purchases</div>
+    //             </div>
+    //             <div className="text-center rounded-md w-20 py-3">
+    //               <div className="font-medium text-primary text-xl">492</div>
+    //               <div className="text-slate-500">Reviews</div>
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
 
-        <div className="mt-4 mb-4 w-full grid grid-cols-2 md:grid-cols-2 xl:grid-cols-2  gap-4">
-          <div className="flex flex-2 ">
-            <Section
-              title="Atendimentos"
-              description={<span>por mês</span>}
-              right={<Dropdown />}
-            >
-              <div className="flex flex-row w-full">
-                <Line1 />
-              </div>
-            </Section>
-          </div>
+    //       <div className=" flex flex-wrap">
+    //         <div className="w-full">
+    //           <UnderlinedTabs tabs={tabs} />
+    //         </div>
+    //       </div>
+    //     </Card>
 
-          <div className="flex flex-1">
-            <Section
-              title="Atendimentos"
-              description={<span>Por demanda</span>}
-              right={<Dropdown />}
-            >
-              <div className="flex flex-row w-full">
-                <List />
-              </div>
-            </Section>
-          </div>
-        </div>
-      </div>
-    </Layout>
+    //     <div className="mt-4 mb-4 w-full grid grid-cols-2 md:grid-cols-2 xl:grid-cols-2  gap-4">
+    //       <div className="flex flex-2 ">
+    //         <Section
+    //           title="Atendimentos"
+    //           description={<span>por mês</span>}
+    //           right={<Dropdown />}
+    //         >
+    //           <div className="flex flex-row w-full">
+    //             <Line1 />
+    //           </div>
+    //         </Section>
+    //       </div>
+
+    //       <div className="flex flex-1">
+    //         <Section
+    //           title="Atendimentos"
+    //           description={<span>Por demanda</span>}
+    //           right={<Dropdown />}
+    //         >
+    //           <div className="flex flex-row w-full">
+    //             <List />
+    //           </div>
+    //         </Section>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </Layout>
   )
 }
 

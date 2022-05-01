@@ -1,7 +1,7 @@
 import React, { Children, FC, useState } from 'react'
 import PropTypes from 'prop-types'
 
-export const UnderlinedTabs = ({ tabs }) => {
+export const UnderlinedTabs = (tabs: any) => {
   const [openTab, setOpenTab] = useState(0)
   return (
     <div className="border-b border-gray-200 dark:border-gray-700">
